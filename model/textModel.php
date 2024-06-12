@@ -53,7 +53,7 @@ try{
 
 function getTextByUserLang(PDO $db, string $userLang) : array | string {
 
-    $userLang === "en" ?        
+        $userLang === "en" ?        
         $lang = "cp_text_en" :
         $lang = "cp_text_fr";
     

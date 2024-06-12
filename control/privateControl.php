@@ -1,6 +1,6 @@
 <?php
 
-$allText = getTextByUserLang($db, $_SESSION["user_lang"]);
+$allText = getTextByUserLang($db, $_SESSION["cp_lang"]);
 // $completeTexts = getAllTexts($db);
 
 
