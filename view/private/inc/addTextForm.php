@@ -1,7 +1,7 @@
 
 <?php
     $block = "";
-    $_SESSION["np_user_permission"] < 128 ? $block = "disabled" : $block = "";
+    $_SESSION["cp_permission"] < 128 ? $block = "disabled" : $block = "";
   ?>
 
 <?php

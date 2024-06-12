@@ -7,6 +7,7 @@ require_once("../config.php");
 require_once("../control/dbConnectControl.php");
 require_once('../model/laundryModel.php');
 require_once("../model/loginModel.php");
+require_once('../model/textModel.php');
 // require_once("../model/logoutModel.php");
 
 

@@ -15,6 +15,8 @@
         // INCLURE SI NECESSAIRE (BON ENDROIT POUR LE NAVBAR PAR EXEMPLE)
         include("inc/header.php");
     ?>
+
+<?php include ("inc/error-message.php"); // leave this here to display any eventual error message - include this on all pages ?>
     
     <div class="container">
         <p class="h4"><a href="?login">Login</a></p>

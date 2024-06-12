@@ -22,6 +22,9 @@
             <?php
                 include("inc/privateHeader.php");
             ?>
+            
+            <?php include ("inc/error-message.php"); // leave this here to display any eventual error message - include this on all pages ?>
+            
             <?php
                 if (isset($_GET["addText"])) {
                     include("inc/addTextForm.php");
@@ -33,7 +36,7 @@
     </div>
 
     <?php
-
+        var_dump($allText);
     ?>
     </div>
     <!-- BOOTSTRAP CDN[SCRIPTS] ICI -->    
