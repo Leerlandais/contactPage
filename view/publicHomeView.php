@@ -21,12 +21,12 @@
 <?php include ("inc/error-message.php"); // leave this here to display any eventual error message - include this on all pages ?>
     
     <div class="container">
-        <p class="h4"><a href="?login" id="publicPageLogin">Log</a></p>
+        <p class="h4"><a href="?login" id="publicPageLogin"></a></p>
     <?php
         if (isset($_GET["login"])) include("inc/loginForm.php");
     ?>
 
-
+    <p class="h5" id="testH"></p>
     </div>
 
     <?php
