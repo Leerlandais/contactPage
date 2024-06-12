@@ -15,6 +15,7 @@ $(document).ready(function() {
         });
 
 function makeGlobalText(datas) {
+    console.log(datas);
     let element = '';
     for (let data in datas) {
         let elem     = datas[data].elem;

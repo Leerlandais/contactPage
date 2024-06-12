@@ -1,5 +1,7 @@
 <?php
 
+$allText = getTextByUserLang($db, $_SESSION["cp_lang"]);
+
 if (isset($_POST["nameInp"], $_POST["passInp"])) {
         $name = standardClean($_POST["nameInp"]);
         $pwd  = simpleTrim($_POST["passInp"]);

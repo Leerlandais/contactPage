@@ -37,6 +37,7 @@
 
     <?php
         var_dump($allText);
+        var_dump($_SESSION);
     ?>
     </div>
     <!-- BOOTSTRAP CDN[SCRIPTS] ICI -->    
