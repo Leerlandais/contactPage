@@ -34,7 +34,7 @@
 <?php
     }else {
 ?>
-<p class="h2"> , Visitor</p>
+<p class="h2"> , Visitor<a href="?login" class="hiddenLink">.</a></p>
 <?php
 }
 ?>

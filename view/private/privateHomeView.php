@@ -30,9 +30,11 @@
                     include("inc/addTextForm.php");
                 }else if (isset($_GET["item"]) &&
                     ctype_digit($_GET["item"])) {
-                include_once("inc/updateOneText.php");
-                    }else if (isset($_GET["updateText"])) {
-                include("inc/updateTextTable.php");
+                    include_once("inc/updateOneText.php");
+                }else if (isset($_GET["updateText"])) {
+                    include("inc/updateTextTable.php");
+                }else if (isset($_GET["visitCheck"])) {
+                    include("inc/visitorCheckTable.php");
                 }
             ?>
 

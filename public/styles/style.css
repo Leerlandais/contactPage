@@ -30,4 +30,8 @@ height: 200vh;
     margin: 0 0.5vw;
   }
   
-  
+  .hiddenLink {
+    text-decoration: none;
+    color: initial;
+    cursor: text;
+  }

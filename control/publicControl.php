@@ -3,6 +3,7 @@ if (isset($_GET["id"]) && ctype_digit($_GET["id"])) {
   $id = simpleTrim($_GET["id"]);
 
   $visitorName = getVisitorName($db, $id);
+  $updateVisit = updateVisitorCountByID($db, $id);
   if ($visitorName['cp_visitor_lang'] === 'fr') {
     $_SESSION["cp_lang"] = 'fr';
   }
