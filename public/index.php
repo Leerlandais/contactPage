@@ -2,6 +2,7 @@
 
 session_start(); 
 if(!isset($_SESSION["cp_lang"])) $_SESSION["cp_lang"] = "en";   
+if(!isset($_SESSION["count"])) $_SESSION["count"] = false;   
 
 require_once("../config.php");
 require_once("../control/dbConnectControl.php");

@@ -9,7 +9,7 @@ function getVisitorName(PDO $db, $code) : array | string { // why did this work 
     try{
         $stmt->execute([$code]);
         $result = $stmt->fetch();
-
+           
         return $result;
         
         }catch(Exception){
@@ -40,6 +40,7 @@ function getVisitorCount(PDO $db) {
 }
 
 function updateVisitorCountByID(PDO $db, $code) : bool | string {
+
     $sql = "UPDATE `cp_visitors`
             SET    `cp_visitor_new`
             = 	   `cp_visitor_new` + 1
@@ -47,6 +48,7 @@ function updateVisitorCountByID(PDO $db, $code) : bool | string {
     $stmt = $db->prepare($sql);
     try {
         $stmt->execute([$code]);
+        $_SESSION["count"] = true;
         return true;     
     }catch(Exception $e) {
         return $e->getMessage();
