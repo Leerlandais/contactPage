@@ -25,32 +25,6 @@ return $errorMessage;
 }
 }
 
-
-function updateOneText(PDO $db, int $id, string $elem, string $eng, string $fre, string $type) : bool | string {
-    $sql = "UPDATE `cp_text` 
-            SET `cp_text_element`= ?,
-                `cp_text_en`= ?,
-                `cp_text_fr`= ?,
-                `cp_text_type`= ?
-                 WHERE `cp_text_id` = ?";
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(1, $elem);
-    $stmt->bindValue(2, $eng);
-    $stmt->bindValue(3, $fre);
-    $stmt->bindValue(4, $type);
-    $stmt->bindValue(5, $id);
-    
-try{
-    $stmt->execute();
-    return true;
-    
-    }catch(Exception){
-    $errorMessage = "Couldn't update that";
-    return $errorMessage;
-    }
-    return true;
-}
-
 function getTextByUserLang(PDO $db, string $userLang) : array | string {
 
         $userLang === "en" ?        
@@ -84,8 +58,7 @@ function getTextByUserLang(PDO $db, string $userLang) : array | string {
                         `cp_text_en` AS `enText`, 
                         `cp_text_fr` AS `frText`,
                         `cp_text_type` AS theType,
-                        `cp_text_id` AS `id`,
-                        `cp_text_lock` AS locked   
+                        `cp_text_id` AS `id`
                 FROM `cp_text`";
         try {
             $query = $db->query($sql);
@@ -108,8 +81,7 @@ function getTextByUserLang(PDO $db, string $userLang) : array | string {
                        `cp_text_en` AS `enText`, 
                        `cp_text_fr` AS `frText`,
                        `cp_text_type` AS theType,
-                       `cp_text_id` AS `id`,
-                       `cp_text_lock` AS locked  
+                       `cp_text_id` AS `id`
                 FROM `cp_text`
                 WHERE `cp_text_id` = ?";
         $stmt = $db->prepare($sql);
@@ -121,4 +93,29 @@ function getTextByUserLang(PDO $db, string $userLang) : array | string {
         }catch(Exception $e) {
             return $e->getMessage();
         }
+    }
+
+    function updateOneText(PDO $db, int $id, string $elem, string $eng, string $fre, string $type) : bool | string {
+        $sql = "UPDATE `cp_text` 
+                SET `cp_text_element`= ?,
+                    `cp_text_en`= ?,
+                    `cp_text_fr`= ?,
+                    `cp_text_type`= ?
+                     WHERE `cp_text_id` = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(1, $elem);
+        $stmt->bindValue(2, $eng);
+        $stmt->bindValue(3, $fre);
+        $stmt->bindValue(4, $type);
+        $stmt->bindValue(5, $id);
+        
+    try{
+        $stmt->execute();
+        return true;
+        
+        }catch(Exception){
+        $errorMessage = "Couldn't update that";
+        return $errorMessage;
+        }
+        return true;
     }
