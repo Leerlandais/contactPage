@@ -1,8 +1,17 @@
 <?php
+if (isset($_GET["id"]) && ctype_digit($_GET["id"])) {
+  $id = simpleTrim($_GET["id"]);
+
+  $visitorName = getVisitorName($db, $id);
+  if ($visitorName['cp_visitor_lang'] === 'fr') {
+    $_SESSION["cp_lang"] = 'fr';
+  }
+}
 
 if (isset($_POST["user_lang"])) {
   $_SESSION["cp_lang"] = $_POST["user_lang"];
 }
+
 
 $allText = getTextByUserLang($db, $_SESSION["cp_lang"]);
 

@@ -1,5 +1,23 @@
 <?php
 
+function getVisitorName($db, $code) {
+    $sql = "SELECT * 
+            FROM `cp_visitors`
+            WHERE `cp_visitor_code` = ?";
+
+    $stmt = $db->prepare($sql);
+    try{
+        $stmt->execute([$code]);
+        $result = $stmt->fetch();
+
+        return $result;
+        
+        }catch(Exception){
+        $errorMessage = "Couldn't add that";
+        return $errorMessage;
+        }
+}
+
 function addNewText(PDO $db, string $selector, string $english, string $french, string $type) : bool | string {
     $sql = "INSERT INTO `cp_text`(
                         `cp_text_element`, 

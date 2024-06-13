@@ -24,12 +24,13 @@
 </div>
 </div>
 </nav>
-<div class="container-fluid d-flex flex-row justify-content-center">
+<div class="container-fluid d-flex flex-row justify-content-center align-items-center">
 <p class="h2" id="welcomeVisitor"></p>
 <?php
     if (isset($visitorName)) {
+
 ?>
-<p class="h2" id="welcomeName"></p>
+<p class="h2" id="welcomeName">, <?=$visitorName["cp_visitor_name"]?></p>
 <?php
     }else {
 ?>
