@@ -1,3 +1,12 @@
+window.addEventListener('resize', displayScreenWidth); 
+function displayScreenWidth() { 
+    const screenwidth = document.getElementById("screenwidth");
+    let theWidth = window.innerWidth;                                             
+    screenwidth.innerHTML = ' : ' + theWidth + "px";
+}
+displayScreenWidth();
+
+
 $(document).ready(function() {
 
 

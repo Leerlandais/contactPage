@@ -49,7 +49,11 @@ if (isset($_POST["oneTextId"],
     $updateText = updateOneText($db, $id, $elem, $eng, $fre, $type);
     if (is_string($updateText)) {
         $errorMessage = $updateText;
-    }
+    }else if ($updateText === true) {
+ 
+        header("Location: ?updateText");
+          die();
+      }
         }
 
 

@@ -21,11 +21,11 @@ if ($_SESSION["cp_permission"] !== 255) {
         <textarea name="oneTextFre" value="<?=$getOneText["frText"]?>"><?=$getOneText["frText"]?></textarea>
 
     <div class="d-flex flex-row justify-content-center text-center">
-            <label for="labelTypeSelect" class="radioSelectLabel"></label>
+            <label for="labelTypeSelect" class="inpLabelSelect"></label>
                 <input type="radio" name="selectorType"id="labelTypeSelect" class="ps-0 me-2" value="selector" <?php if($getOneText["theType"] === "selector") echo 'checked'?>>
-            <label for="labelTypeId" class="radioIdLabel"></label>
+            <label for="labelTypeId" class="inpLabelID"></label>
                 <input type="radio" name="selectorType"id="labelTypeId" class="ps-0 me-2" value="id" <?php if($getOneText["theType"] === "id") echo 'checked'?>>
-            <label for="labelTypeClass" class="radioClassLabel"></label>
+            <label for="labelTypeClass" class="inpLabelClass"></label>
                 <input type="radio" name="selectorType"id="labelTypeClass" class="ps-0 me-2" value="class" <?php if($getOneText["theType"] === "class") echo 'checked'?>>
         </div>
 

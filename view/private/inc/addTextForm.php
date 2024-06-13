@@ -23,11 +23,13 @@
       <input class="ps-2" type="text" name="frenchInp" id="frenchInp" aria-describedby="userNameField" placeholder="french version" <?=$block?>>
       
       <div class="d-flex flex-row">
+      <label for="typeInpSelector" class="radioIdLabel mx-2 inpLabelSelect" ></label>
+      <input class="ps-2 me-1" type="radio" name="typeInp" id="typeInpSelector" checked value="selector">
         
-        <label for="typeInpId" class="radioIdLabel mx-2"></label>
+        <label for="typeInpId" class="radioIdLabel mx-2 inpLabelID"></label>
         <input class="ps-2 me-1" type="radio" name="typeInp" id="typeInpId" checked value="id">
         
-        <label for="typeInpClass" class="radioClassLabel mx-2"></label>
+        <label for="typeInpClass" class="radioClassLabel mx-2 inpLabelClass"></label>
         <input class="ps-2 me-1" type="radio" name="typeInp" id="typeInpClass" value="class">
         
       </div>
