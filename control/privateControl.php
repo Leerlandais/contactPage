@@ -58,6 +58,16 @@ if (isset($_POST["oneTextId"],
         }
 
 
+    // MERGE VISITOR COUNTS
+    if (isset($_POST['visitorUpdate'])) {
+        $mergeCount = mergeVisitorCounters($db);
+        if (is_string($mergeCount)) {
+            $errorMessage = $mergeCount;
+        }else {
+            header("Location: ?visitCheck");
+        }
+    }
+
 
 $title = 'Hi Boss';
 include("../view/private/privateHomeView.php");

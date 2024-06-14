@@ -32,6 +32,10 @@
                                     ?>
                             </tbody>
                         </table>
+                            <form action="" method="POST" id = "visitorForm" class="d-flex justify-content-center">
+                                <input type="text" name="visitorUpdate" class="d-none">
+                                <button type="submit" class="btn btn-primary" id="mergeButton"></button>
+                            </form>                        
 
                     </div>
                     </div>

@@ -54,3 +54,15 @@ function updateVisitorCountByID(PDO $db, $code) : bool | string {
         return $e->getMessage();
     }
 }
+
+function mergeVisitorCounters(PDO $db) : bool | string {
+    $sql = "UPDATE `cp_visitors` 
+            SET    `cp_visitor_current` 
+            =      `cp_visitor_new`";
+    try{
+        $query = $db->query($sql);
+        return true;
+    }catch(Exception $e) {
+        return $e->getMessage();
+    }
+}

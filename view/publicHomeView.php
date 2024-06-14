@@ -18,7 +18,7 @@
     <div class="container d-flex flex-column align-items-center">
   
     <?php
-    var_dump($_SESSION);
+
         if (isset($_GET["login"])) include("inc/loginForm.php");
     ?>
     </div>
