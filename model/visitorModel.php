@@ -66,3 +66,7 @@ function mergeVisitorCounters(PDO $db) : bool | string {
         return $e->getMessage();
     }
 }
+
+function addNewVisitor(PDO $db, string $code, string $name, string $mail, string $lang) {
+    
+}

@@ -17,9 +17,9 @@
         </div>
         <div class="form-group d-flex flex-row">
             <label for="radioEN" class="mx-2">Eng :</label>
-                <input class="ps-2 me-1" id="radioEN" type="radio" name="typeInp" checked value="en">
+                <input class="ps-2 me-1" id="radioEN" type="radio" name="newVisitLang" checked value="en">
             <label for="radioFR" class="mx-2">Fre :</label>
-                <input class="ps-2 me-1" type="radio" name="typeInp" id="radioFR" value="fr">            
+                <input class="ps-2 me-1" type="radio" name="newVisitLang" id="radioFR" value="fr">            
         </div>
         <button class="btn btn-secondary text-white submitButton" type="submit"></button>
     </form>

@@ -77,6 +77,21 @@ if (isset($_POST["oneTextId"],
             
         }
 
+// ADD NEW VISITOR
+if (isset($_POST["newVisitCode"],
+          $_POST["newVisitName"],
+          $_POST["newVisitMail"],
+          $_POST["newVisitLang"]
+          ) && ctype_digit($_POST["newVisitCode"])
+    ){
+        $code = standardClean($_POST["newVisitCode"]);
+        $name = standardClean($_POST["newVisitName"]);
+        $mail = standardClean($_POST["newVisitMail"]);
+        $lang = standardClean($_POST["newVisitLang"]);
+
+        $newVisitor = addNewVisitor($db, $code, $name, $mail, $lang);
+    }
+
 $title = 'Hi Boss';
 include("../view/private/privateHomeView.php");
 die();
