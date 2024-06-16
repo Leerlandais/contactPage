@@ -1,4 +1,28 @@
-<div class="container-fluid">
+<div class="container-fluid d-flex flex-column align-items-center">
+    <form action="" method="POST" class="mt-5 d-flex flex-column align-items-center">
+        <div class="form-group">
+            <label for="newVisitCode">Code :
+                <input type="text" id="newVisitCode" name="newVisitCode" required>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="newVisitName">Name :
+                <input type="text" id="newVisitName" name="newVisitName" required>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="newVisitMail">Mail :
+                <input type="email" id="newVisitMail" name="newVisitMail" required>
+            </label>
+        </div>
+        <div class="form-group d-flex flex-row">
+            <label for="radioEN" class="mx-2">Eng :</label>
+                <input class="ps-2 me-1" id="radioEN" type="radio" name="typeInp" checked value="en">
+            <label for="radioFR" class="mx-2">Fre :</label>
+                <input class="ps-2 me-1" type="radio" name="typeInp" id="radioFR" value="fr">            
+        </div>
+        <button class="btn btn-secondary text-white submitButton" type="submit"></button>
+    </form>
 <div class="table-responsive"> 
     <table class="table table-bordered table-striped text-center" data-toggle="table" data-show-columns="true" data-search="true"data-pagination="true">
     <thead>
@@ -11,8 +35,10 @@
         </thead>
         <tbody>
             <?php
-                // replace these with a foreach - $allText   
-                $block =  'style="cursor: not-allowed;"';
+            if (is_string($visitors)) { ?>
+    <p class="h3 text-danger my-5">There are no entries yet</p>
+            <?php    
+            }else {
                 foreach ($visitors as $visitor) {
                     ?>
                 <tr>
@@ -22,7 +48,8 @@
                     <td><?=$visitor["new"]?></td>                                                                                      
                 </tr>
                 <?php
-          }                                     
+          }        
+        }                             
                 ?>
         </tbody>
     </table>
@@ -32,7 +59,7 @@
         </form>                    
 </div>
 <?php if (!$getMessages) {?>
-    <p class="h3 text-danger">There are no messages yet</p>
+    <p class="h3 text-danger my-5">There are no messages yet</p>
 <?php }else { ?>
 <div class="table-responsive"> 
     <table class="table table-bordered table-striped text-center" data-toggle="table" data-show-columns="true" data-search="true"data-pagination="true">
