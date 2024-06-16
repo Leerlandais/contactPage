@@ -37,6 +37,27 @@ if (isset($_POST["nameInp"], $_POST["passInp"])) {
         }
 }
 
+if (isset($_POST["contactID"],
+          $_POST["contactName"],
+          $_POST["contactMail"],
+          $_POST["contactMess"])
+          && ctype_digit($_POST["contactID"])
+    ){
+        $id   = intval(intClean($_POST["contactID"]));
+        $name = standardClean($_POST["contactName"]);
+        $mail = standardClean($_POST["contactMail"]);
+        $mess = standardClean($_POST["contactMess"]);
+
+        $sendMess = sendVisitorMessage($db, $id, $name, $mail, $mess);
+        if (is_string($sendMess)) {
+          $errorMessage = $sendMess;
+        }else if (!$sendMess) {
+          $errorMessage = "Something went wrong";
+        }else {
+          if ($_SESSION["cp_lang"] === "en") $errorMessage = "Your message has been delivered";
+          if ($_SESSION["cp_lang"] === "fr") $errorMessage = "Votre message a été livré";
+        }
+    }
 
 $title = "Welcome";
 include("../view/publicHomeView.php");
