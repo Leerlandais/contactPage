@@ -3,7 +3,7 @@
 $allText       = getTextByUserLang($db, $_SESSION["cp_lang"]);
 $completeTexts = getAllTexts($db);
 $visitors      = getVisitorCount($db); // this function is only needed in one place. Is it better to call it here or call it on the page itself? In other words, if here, does it get called all the time or only when needed?
-
+$getMessages   = getVisitorMessages($db);
 if(isset($_GET["logout"])) {
     require("../model/logoutModel.php");
     die();
