@@ -31,7 +31,9 @@
             <button type="submit" class="btn btn-primary" id="mergeButton"></button>
         </form>                    
 </div>
-
+<?php if (!$getMessages) {?>
+    <p class="h3 text-danger">There are no messages yet</p>
+<?php }else { ?>
 <div class="table-responsive"> 
     <table class="table table-bordered table-striped text-center" data-toggle="table" data-show-columns="true" data-search="true"data-pagination="true">
     <thead>
@@ -50,13 +52,23 @@
                     <td><?=$mess["sentBy"]?></td>
                     <td><?=$mess["mess"]?></td>
                     <td><?=$mess["thedate"]?></td>
-                    <td><a href="?showMessage=<?=$mess["cp_messages_id"]?>">Show</a></td>
+                    <td><a href="?visitCheck&showMessage=<?=$mess["cp_messages_id"]?>">Show</a></td>
                                                                                    
                 </tr>
                 <?php
-          }                                     
+          }                                   
                 ?>
         </tbody>
     </table>               
 </div>
+    <?php } ?>
+        <?php if(isset($getOneMess)) { ?>
+                <div class="d-flex flex-column align-items-center">
+                    <p class="h3"><?=$getOneMess["sentBy"]?></p>
+                    <pre>
+                        <p><?=$getOneMess["mess"]?></p>
+                    </pre>
+                    <p class="h6 fst-italic"><?=$getOneMess["thedate"]?></p>
+                </div>
+        <?php } ?>
 </div>

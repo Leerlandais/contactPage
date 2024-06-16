@@ -68,6 +68,14 @@ if (isset($_POST["oneTextId"],
         }
     }
 
+    // GET SINGLE MESSAGE
+    if (isset($_GET["showMessage"])
+         && ctype_digit($_GET["showMessage"])
+        ){
+            $id = intval(intClean($_GET["showMessage"]));
+            $getOneMess = getOneMessageByID($db, $id);
+            
+        }
 
 $title = 'Hi Boss';
 include("../view/private/privateHomeView.php");

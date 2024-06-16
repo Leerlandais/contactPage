@@ -18,7 +18,7 @@
     <div class="container">
         <?php if (isset($_GET["login"])) include("inc/loginForm.php"); ?>
 
-            <form action="./" method="POST" class="d-flex flex-column align-items-center">
+            <form action="" method="POST" class="d-flex flex-column align-items-center">
             <input type="text" class="text-center d-none" name="contactID" id="contactID" placeholder="<?php if (isset($visitorName)) echo $visitorName["cp_visitor_id"]?>" value="<?php if (isset($visitorName)) echo $visitorName["cp_visitor_id"]?>" required>
                     <label for="contactName" id="contactNameLabel"></label>
                         <input type="text" class="text-center" name="contactName" id="contactName" placeholder="<?php if (isset($visitorName)) echo $visitorName["cp_visitor_name"]?>" value="<?php if (isset($visitorName)) echo $visitorName["cp_visitor_name"]?>" required>

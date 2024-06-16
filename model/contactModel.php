@@ -47,3 +47,19 @@ try{
     }
 }
 
+function getOneMessageByID(PDO $db, int $id) : array | string {
+    $sql = "SELECT  cp_messages_sender AS sentBy,
+                    cp_messages_mess AS mess,
+                    cp_messages_date AS thedate
+            FROM cp_messages
+            WHERE cp_messages_id = ?";
+    $stmt = $db->prepare($sql);
+
+    try{
+        $stmt->execute([$id]);
+        $result = $stmt->fetch();
+        return $result;
+    }catch(Exception $e) {
+        return $e->getMessage();
+    }
+}
