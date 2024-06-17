@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 14, 2024 at 07:06 AM
+-- Generation Time: Jun 17, 2024 at 07:13 AM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -24,6 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cp_messages`
+--
+
+DROP TABLE IF EXISTS `cp_messages`;
+CREATE TABLE IF NOT EXISTS `cp_messages` (
+  `cp_messages_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cp_messages_origin` int NOT NULL,
+  `cp_messages_sender` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `cp_messages_mail` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `cp_messages_mess` text COLLATE utf8mb4_general_ci NOT NULL,
+  `cp_messages_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`cp_messages_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cp_text`
 --
 
@@ -35,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `cp_text` (
   `cp_text_fr` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `cp_text_type` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'id',
   PRIMARY KEY (`cp_text_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cp_text`
@@ -52,7 +69,10 @@ INSERT INTO `cp_text` (`cp_text_id`, `cp_text_element`, `cp_text_en`, `cp_text_f
 (8, 'footerScreenWidth', 'The screen width is', 'La largeur de l&#039;écran est', 'id'),
 (9, 'navLogin', 'Login', 'Connexion', 'id'),
 (10, 'welcomeVisitor', 'Welcome', 'Bienvenue', 'id'),
-(11, 'mergeButton', 'Merge', 'Fusionner', 'id');
+(11, 'mergeButton', 'Merge', 'Fusionner', 'id'),
+(12, 'contactNameLabel', 'Your Name :', 'Votre Nom :', 'id'),
+(13, 'contactMailLabel', 'Email :', 'Email :', 'id'),
+(14, 'contactMessLabel', 'Your Message :', 'Votre Message :', 'id');
 
 -- --------------------------------------------------------
 
@@ -76,9 +96,7 @@ CREATE TABLE IF NOT EXISTS `cp_users` (
 --
 
 INSERT INTO `cp_users` (`cp_id`, `cp_username`, `cp_email`, `cp_pwd`, `cp_permission`, `cp_lang`) VALUES
-(1, 'admin', 'admin@admin.com', '$2y$10$2sn4jJ0LgUkGCQHNDfsEPOlybZlC20j.Lk3JCM7lfyAwwrizsEaem', 1, 'fr'),
-(2, 'leerlandais', 'lee@leerlandais.com', '$2y$10$y0pLpP4tuXDuLaDakIpkdO17YjRqZ6U5UEHPEid9LHR60L7eYIFy.', 255, 'en'),
-(18, 'test', 'a@a.com', '$2y$10$2ftKO95EQWaM9W6KNMytu.p43DGQlvjemA4D0oONEmZPPOxdDAMMu', 1, 'fr');
+(2, 'leerlandais', 'lee@leerlandais.com', '$2y$10$y0pLpP4tuXDuLaDakIpkdO17YjRqZ6U5UEHPEid9LHR60L7eYIFy.', 255, 'en');
 
 -- --------------------------------------------------------
 
@@ -91,19 +109,12 @@ CREATE TABLE IF NOT EXISTS `cp_visitors` (
   `cp_visitor_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `cp_visitor_code` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `cp_visitor_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cp_visitor_email` varchar(128) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `cp_visitor_current` int NOT NULL DEFAULT '0',
   `cp_visitor_new` int NOT NULL DEFAULT '0',
   `cp_visitor_lang` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`cp_visitor_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cp_visitors`
---
-
-INSERT INTO `cp_visitors` (`cp_visitor_id`, `cp_visitor_code`, `cp_visitor_name`, `cp_visitor_current`, `cp_visitor_new`, `cp_visitor_lang`) VALUES
-(1, '001', 'Erhan', 4, 4, 'fr'),
-(2, '010', 'Lee', 6, 6, 'en');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
