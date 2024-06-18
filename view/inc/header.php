@@ -7,13 +7,16 @@
     </div>
 </form>
 
-<div class="container-fluid d-flex flex-row align-items-center mb-5">
+<div class="container-fluid d-flex flex-column align-items-center mb-5">
 <p class="h2" id="welcomeVisitor"></p>
 <?php
-    if (isset($visitorName)) {
+    if (isset($visitorName) && $visitorName != "") {
 
 ?>
-<p class="h2" id="welcomeName">, <?=$visitorName["cp_visitor_name"]?><a href="?login" class="hiddenLink">.</a></p>
+<div class="d-flex flex-row">
+<p class="h2" id="welcomeName"><?=$visitorName["cp_visitor_name"]?><a href="?login" class="hiddenLink">.</a></p>
+</div>
+<p class="h4" id="welcomeMess"></p>
 <?php
     }else {
 ?>

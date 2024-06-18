@@ -6,10 +6,11 @@ if (isset($_GET["id"]) && ctype_digit($_GET["id"])) {
      $updateVisit = updateVisitorCountByID($db, $id);
   }
   $visitorName = getVisitorName($db, $id);
-  
+if($visitorName != "") {
   if ($visitorName['cp_visitor_lang'] === 'fr') {
     $_SESSION["cp_lang"] = 'fr';
   }
+}
 }
 
 if (isset($_POST["user_lang"])) {
