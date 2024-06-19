@@ -31,6 +31,7 @@
                 <th class="text-center" id="updateTableHeadTextEn">Name</th>
                 <th class="text-center" id="updateTableHeadTextFr">Old</th>
                 <th class="text-center" id="updateTableHeadType">New</th>                                    
+                <th class="text-center" id="deleteVisitor">Delete</th> 
             </tr>
         </thead>
         <tbody>
@@ -45,7 +46,8 @@
                     <td><?=$visitor["code"]?></td>
                     <td><?=$visitor["nom"]?></td>
                     <td><?=$visitor["curr"]?></td>
-                    <td><?=$visitor["new"]?></td>                                                                                      
+                    <td><?=$visitor["new"]?></td>    
+                    <td><a href ="?deleteVisitor&visId=<?=$visitor["id"]?>"><img src="images/trash.svg" alt="Delete"></a></td>
                 </tr>
                 <?php
           }        

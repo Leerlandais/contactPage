@@ -19,7 +19,8 @@ function getVisitorName(PDO $db, $code) : array | string { // why did this work 
 }
 
 function getVisitorCount(PDO $db) {
-    $sql = "SELECT `cp_visitor_code` AS code,
+    $sql = "SELECT `cp_visitor_id` AS id,
+                   `cp_visitor_code` AS code,
                    `cp_visitor_name` AS nom,
                    `cp_visitor_current` AS curr,
                    `cp_visitor_new` AS new
@@ -68,5 +69,5 @@ function mergeVisitorCounters(PDO $db) : bool | string {
 }
 
 function addNewVisitor(PDO $db, string $code, string $name, string $mail, string $lang) {
-    
+    $sql = ""; // you know what to do :p
 }
