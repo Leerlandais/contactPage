@@ -69,5 +69,39 @@ function mergeVisitorCounters(PDO $db) : bool | string {
 }
 
 function addNewVisitor(PDO $db, string $code, string $name, string $mail, string $lang) {
-    $sql = ""; // you know what to do :p
+    $sql = "INSERT INTO `cp_visitors`
+                        (`cp_visitor_code`,
+                         `cp_visitor_name`,
+                         `cp_visitor_email`,
+                         `cp_visitor_lang`) 
+            VALUES      (?,?,?,?)";
+    $stmt = $db->prepare($sql);
+
+    try {
+        $stmt->bindValue(1,$code);
+        $stmt->bindValue(2,$name);
+        $stmt->bindValue(3,$mail);
+        $stmt->bindValue(4,$lang);
+    
+        $stmt->execute();
+        if ($stmt->rowCount() === 0) return false;
+        return true;
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+
+}
+
+function deleteVisitorFromList(PDO $db, int $id) : bool | string {
+    $sql = "DELETE FROM `cp_visitors`
+            WHERE `cp_visitor_id` = ?";
+
+    try {
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$id]);
+        if($stmt->rowCount() === 0) return false;
+        return true;
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
 }

@@ -90,8 +90,30 @@ if (isset($_POST["newVisitCode"],
         $lang = standardClean($_POST["newVisitLang"]);
 
         $newVisitor = addNewVisitor($db, $code, $name, $mail, $lang);
+        if (!$newVisitor) { $errorMessage = "Something went wrong"; 
+        }else if (is_string($newVisitor)) { 
+            $errorMessage = $newVisitor;
+        }else {
+            header('Location: ?visitCheck');
+        }
+    }
+
+// DELETE VISITOR
+if (isset($_GET["deleteVisitor"],
+          $_GET["visId"]
+          ) 
+          && ctype_digit($_GET["visId"])
+    ){
+        $id = intval(intClean($_GET["visId"]));
+        $deleteVisitor = deleteVisitorFromList($db, $id);
+        if($deleteVisitor != true) {
+            $errorMessage = "Something went wrong";
+        }else {
+            header ("Location: ?visitCheck");
+        }
     }
 
 $title = 'Hi Boss';
 include("../view/private/privateHomeView.php");
 die();
+
