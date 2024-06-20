@@ -113,7 +113,21 @@ if (isset($_GET["deleteVisitor"],
         }
     }
 
+// DELETE MESSAGE
+if (isset($_GET["deleteMessage"],
+          $_GET["messId"]
+          ) 
+          && ctype_digit($_GET["messId"])
+    ){
+        $id = intval(intClean($_GET["messId"]));
+        $deleteMessage = deleteMessageFromList($db, $id);
+        if($deleteMessage != true) {
+            $errorMessage = "Something went wrong";
+        }else {
+            header ("Location: ?visitCheck");
+        }
+    }
+
 $title = 'Hi Boss';
 include("../view/private/privateHomeView.php");
 die();
-

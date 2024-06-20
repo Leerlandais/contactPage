@@ -105,3 +105,17 @@ function deleteVisitorFromList(PDO $db, int $id) : bool | string {
         return $e->getMessage();
     }
 }
+
+function deleteMessageFromList(PDO $db, int $id) : bool | string {
+    $sql = "DELETE FROM `cp_messages`
+            WHERE `cp_messages_id` = ?";
+
+    try {
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$id]);
+        if($stmt->rowCount() === 0) return false;
+        return true;
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+}

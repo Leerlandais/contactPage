@@ -71,6 +71,7 @@
                 <th class="text-center">Message</th>
                 <th class="text-center">Date</th>
                 <th class="text-center">Show Full Message</th>
+                <th class="text-center" id="deleteMessage">Delete</th> 
             </tr>
         </thead>
         <tbody>
@@ -82,6 +83,7 @@
                     <td><?=$mess["mess"]?></td>
                     <td><?=$mess["thedate"]?></td>
                     <td><a href="?visitCheck&showMessage=<?=$mess["cp_messages_id"]?>">Show</a></td>
+                    <td><a href ="?deleteMessage&messId=<?=$mess["cp_messages_id"]?>"><img src="images/trash.svg" alt="Delete"></a></td>
                                                                                    
                 </tr>
                 <?php
