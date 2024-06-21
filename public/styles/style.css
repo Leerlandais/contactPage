@@ -35,3 +35,24 @@ height: 200vh;
     color: initial;
     cursor: text;
   }
+
+  #contactWindow {
+  /* classic */    
+  background: linear-gradient(-90deg, hsla(197, 14%, 57%, 1) 0%, hsla(192, 17%, 84%, 1) 100%);
+
+  /* green */
+    /*
+    background: linear-gradient(-90deg, hsla(157, 14%, 57%, 1) 0%, hsla(152, 17%, 94%, 1) 100%); 
+    */
+
+  /* blue  */ 
+    /*
+    background: linear-gradient(-90deg, hsla(217, 14%, 57%, 1) 0%, hsla(212, 17%, 94%, 1) 100%);
+    */
+    
+  /* red  */ 
+    /*
+   background: linear-gradient(-90deg, hsla(22, 14%, 57%, 1) 0%, hsla(17, 17%, 94%, 1) 100%);
+    */  
+
+  }
