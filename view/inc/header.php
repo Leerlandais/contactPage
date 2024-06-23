@@ -1,6 +1,6 @@
 <header class="m-5" id="headerNormal">
     <p class="h1 text-center" id="homepage_h1"></p>
-    <form method="POST" class="mt-5">
+    <form method="POST" action="" class="mt-5">
     <div class="container-fluid d-flex flex-row d-lg-flex flex-row-reverse justify-content-center align-items-center mt-3 mb-5"> 
         <button class="btn langButton langEN" id="englishButton" value="en" type="submit" name="user_lang"></button>
         <button class="btn langButton langFR" id="frenchButton" value="fr" type="submit" name="user_lang"></button>

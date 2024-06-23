@@ -15,6 +15,7 @@ if($visitorName != "") {
 
 if (isset($_POST["user_lang"])) {
   $_SESSION["cp_lang"] = $_POST["user_lang"];
+
 }
 
 
