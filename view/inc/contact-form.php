@@ -2,7 +2,7 @@
 <div class="h-96"></div>
 <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
     <div class="bg-green-700 bg-opacity-20 w-full shadow-xl rounded p-8 sm:p-12 -mt-72">
-        <p class="text-3xl font-bold leading-7 text-center text-white"></p>
+        <p class="text-3xl font-bold leading-7 text-center text-white" id="contactFormTitle"></p>
         <form action="" method="post">
             <div class="md:flex items-center mt-12">
                 <input  type="text"
