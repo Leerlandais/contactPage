@@ -1,74 +1,57 @@
-<?php
-    // idea for later : Make the whole form spin on submission and reveal a card with 'Message Sent'
-?>
-  
-  <div class="container">
-    <div class="row justify-content-lg-center">
-      <div class="col-12 col-lg-9">
-        <div class="bg-transparent border border-secondary rounded shadow-lg overflow-hidden" id="contactWindow">
+<!-- component -->
 
-          <form action="" method="POST">
-            <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
-              <div class="col-12 col-md-6">
-                <input  type="text" 
-                        class="form-control d-none" 
-                        id="contactID" 
-                        name="contactID" 
-                        value="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_id"]?>" 
+<div class="h-96"></div>
+<div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
+    <div class="bg-green-700 bg-opacity-20 w-full shadow rounded p-8 sm:p-12 -mt-72">
+        <p class="text-3xl font-bold leading-7 text-center text-white">Contact me</p>
+        <form action="" method="post">
+            <div class="md:flex items-center mt-12">
+                <input  type="text"
+                        class="hidden"
+                        name="contactID" id="contactID"
+                        placeholder="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_id"]?>"
+                        value="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_id"]?>"
                         required>
-                
-                    <label  for="contactName" class="form-label" id="contactNameLabel"> 
-                        <span class="text-danger">*</span>
-                    </label>
-                <input  type="text" 
-                        class="form-control" 
-                        id="contactName" 
-                        name="contactName" 
-                        placeholder="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_name"]?>"  
-                        value="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_name"]?>" 
-                        required>
-              </div>
-              <div class="col-12 col-md-6">
-                <label for="contactMail" id="contactMailLabel" class="form-label"> 
-                    <span class="text-danger">*</span>
-                </label>
-                <div class="input-group">
-                  <span class="input-group-text">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                    </svg>
-                  </span>
-                  <input type="email" 
-                         class="form-control" 
-                         id="contactMail" 
-                         name="contactMail" 
-                         value="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_email"]?>" 
-                         placeholder="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_email"]?>" 
-                         required>
+                <div class="w-full md:w-1/2 flex flex-col">
+                    <label class="font-semibold leading-none text-gray-600"
+                           for="contactName"
+                           id="contactNameLabel"></label>
+                                <input type="text"
+                                       name="contactName"
+                                       id="contactName"
+                                       class="leading-none text-gray-500 text-center p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-white bg-opacity-50 rounded"
+                                       placeholder="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_name"]?>"
+                                       value="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_name"]?>"/>
                 </div>
-              </div>
-              <div class="col-12">
-                <label for="contactMess" id="contactMessLabel" class="form-label"> 
-                    <span class="text-danger">*</span>
-                </label>
-                <textarea class="form-control" 
-                          id="contactMess" 
-                          name="contactMess" 
-                          rows="3" 
-                          required></textarea>
-              </div>
-              <div class="col-12">
-                <div class="d-grid justify-content-center">
-                  <button class="btn btn-primary btn-outline-success text-white btn-lg submitButton" type="submit"></button>
+                <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
+                    <label class="font-semibold leading-none text-gray-600"
+                           for="contactMail"
+                           id="contactMailLabel"></label>
+                    <input type="email"
+                           class="leading-none text-gray-500 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-white bg-opacity-50 rounded"
+                           name="contactMail"
+                           id="contactMail"
+                           placeholder="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_email"]?>"
+                           value="<?php if (isset($visitorName) && $visitorName != "") echo $visitorName["cp_visitor_email"]?>"/>
                 </div>
-              </div>
             </div>
-          </form>
 
-        </div>
-      </div>
+            <div>
+                <div class="w-full flex flex-col mt-8">
+                    <label class="font-semibold leading-none text-gray-300"
+                           for="contactMail"
+                           id="contactMailLabel"></label>
+                    <textarea type="text"
+                              class="h-40 text-base leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-white bg-opacity-50 border-0 rounded"
+                              name="contactMess"
+                              id="contactMess"></textarea>
+                </div>
+            </div>
+            <div class="flex items-center justify-center w-full">
+                <button class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+                    Send message
+                </button>
+            </div>
+        </form>
     </div>
-  </div>
-
-
-
+</div>

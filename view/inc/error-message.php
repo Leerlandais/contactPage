@@ -1,8 +1,7 @@
-
 <?php
-    if (isset($errorMessage)) {
+if (isset($errorMessage)) {
     ?>
-    <p class="h2"><?=$errorMessage?></p>
+    <p class="h2"><?= $errorMessage ?></p>
     <?php
-    }
-    ?>
+}
+?>
