@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <title><?=$title?></title>
 </head>
-<body class="bg-gradient-to-r from-green-500 via-gray-200 to-amber-500 bg-opacity-25">
+<body class="bg-gradient-to-r from-green-700 via-gray-300 to-amber-700 bg-opacity-25">
     <div class="container-fluid flex flex-col justify-center items-center text-center"> <!-- CONTAINER GLOBAL POUR ENGLOBÉ LE TOTALE -->
 
 <?php include ("inc/header.php"); ?>
