@@ -4,6 +4,9 @@ if (isset($_GET["id"]) && ctype_digit($_GET["id"])) {
 
   if(!$_SESSION["count"]) {
      $updateVisit = updateVisitorCountByID($db, $id);
+     if($updateVisit) {
+         // send myself an email to signal visit
+     }
   }
   $visitorName = getVisitorName($db, $id);
 if($visitorName != "") {
