@@ -1,6 +1,13 @@
 <?php
 
 session_start(); 
+// CHECK SESSION ACTIVITY OR LOGOUT AUTOMATICALLY
+if (isset($_SESSION["active"]) && time() - $_SESSION["active"] > 180) {
+    require_once "../model/logoutModel.php";
+    exit();
+}
+$_SESSION["active"] = time();
+
 if(!isset($_SESSION["cp_lang"])) $_SESSION["cp_lang"] = "en";   
 if(!isset($_SESSION["count"])) $_SESSION["count"] = false;   
 
