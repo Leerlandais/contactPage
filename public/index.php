@@ -23,7 +23,7 @@ require_once("../control/jsonController.php");
 
 
 
-if (isset($_SESSION["id"]) && $_SESSION["id"] === session_id()) {
+if (isset($_SESSION["id"], $_SESSION["siteName"]) && $_SESSION["id"] === session_id() && $_SESSION["siteName"] === "contactPage") {
 
     require_once ("../control/privateControl.php");
 die();

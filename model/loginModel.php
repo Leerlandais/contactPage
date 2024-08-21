@@ -19,6 +19,7 @@ $stmt->bindValue(1, $name);
                 $_SESSION = $result;
                 unset($_SESSION['cp_pwd']);
                 $_SESSION['id'] = session_id();
+                $_SESSION['siteName'] = "contactPage";
 ;
                 return true;
             }else {
